@@ -11,7 +11,7 @@ source:
     sha256: d594fc76b59d03054fe717ab187f8e5574c5f6572bf71bc5441bde6df94d610c
 
 build:
-  number: 0
+  number: 1
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
@@ -20,7 +20,7 @@ requirements:
     - ${{ compiler('cxx') }}
     - ${{ stdlib("c") }}
   host:
-    - python ${{ python_min }}.*
+    - python
     - pip
     - setuptools
     - wheel
@@ -30,9 +30,6 @@ requirements:
 
 tests:
   - python:
-      python_version:
-        - ${{ python_min }}.*
-        - "*"
       imports:
         - knot_floer_homology
         - knot_floer_homology.hfk
